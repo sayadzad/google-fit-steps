@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.googlefitsteps.viewmodel.StepsViewModel" />
+
+        <variable
+            name="position"
+            type="java.lang.Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/count"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:text="@{viewModel.getStepAt(position).date}"
+            android:textSize="16sp"
+            tools:text="Test" />
+
+        <TextView
+            android:id="@+id/count"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/date"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:text="@{viewModel.getStepAt(position).count.toString()}"
+            android:textSize="16sp"
+            tools:text="Test" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
